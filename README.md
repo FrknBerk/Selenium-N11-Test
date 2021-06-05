@@ -1,4 +1,4 @@
-# Selenium-N11-Test
+# N11 Project Requirements
 
 - [x] https://www.n11.com/ sitesi açılır.
 - [x] Ana sayfanın açıldığı kontrol edilir. Siteye login olunur
