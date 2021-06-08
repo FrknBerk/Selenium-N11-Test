@@ -1,6 +1,3 @@
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage{
@@ -15,7 +12,7 @@ public class LoginPage extends BasePage{
     String login="//a[@class='btnSignIn']";
     String inputEmailId ="email";
     String inputPasswordId ="password";
-    String loginButtonXpath="//div[@id='loginButton']";
+    String loginButtonId="loginButton";
 
 
 
@@ -35,24 +32,10 @@ public class LoginPage extends BasePage{
         Thread.sleep(2000);
         sendById(inputPasswordId,password);
         Thread.sleep(2000);
-        assertEqualsClickXpath(loginButtonXpath);
-
-
-        assertEqualsClickId(inputSearchId);
-        Thread.sleep(4000);
-        sendById(inputSearchId,search);
-        Thread.sleep(4000);
-        assertEqualsClickXpath(searchClickXpath);
-        Thread.sleep(2000);
-        assertEqualsClickXpath(pageScrollXpath);
-        Thread.sleep(4000);
-        assertEqualsXpath(pageTwoXpath);
-        Thread.sleep(4000);
-        randomSelectByXpath(pageTwoClickXpath);
+        assertEqualsClickId(loginButtonId);
     }
 
     public void homePageInLogged() throws InterruptedException {
-        assertEqualsClickId(inputSearchId);
         Thread.sleep(4000);
         sendById(inputSearchId,search);
         Thread.sleep(4000);

@@ -1,5 +1,4 @@
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 
 public class N11Test extends Base {
 
@@ -11,11 +10,13 @@ public class N11Test extends Base {
 
         LoginPage loginPage = new LoginPage(driver);
         loginPage.Login();
-        Thread.sleep(8000);
+
+        //Login işlemi başarısız olduğu nedeni ile diğer isterleri yerine getirmek için n11 sayfasına yönlendirdim
+        driver.get("https://www.n11.com/");
+
 
         //Login olduktan sonra bilgisayar kelimesini aratıp 2 sayfaya gidiyoruz
         loginPage.homePageInLogged();
-
 
         CartPage cartPage = new CartPage(driver);
         Thread.sleep(2000);

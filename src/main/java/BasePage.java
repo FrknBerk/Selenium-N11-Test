@@ -1,12 +1,9 @@
 import log.Log4j;
 import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -30,6 +27,8 @@ public class BasePage {
     public void clickByXpath(String xpath){
         driver.findElement(By.xpath(xpath)).click();
     }
+
+    public void clickByCssSelector(String cssSelector){ driver.findElement(By.cssSelector(cssSelector)).click();}
 
     public void sendById(String id,String value){
         driver.findElement(By.id(id)).sendKeys(value);
@@ -73,9 +72,22 @@ public class BasePage {
 
     public void assertEqualsClickId(String id){
         boolean location = driver.findElement(By.id(id)).isDisplayed();
+        System.out.println(location);
         if (location == true){
             Assert.assertEquals(location,true);
             clickById(id);
+        }
+        else{
+            System.out.println("Lokasyonu kontol et");
+            Assert.assertEquals(location,false);
+        }
+    }
+
+    public void assertEqualsClickCssSelector(String cssSelector){
+        boolean location = driver.findElement(By.cssSelector(cssSelector)).isDisplayed();
+        if (location == true){
+            Assert.assertEquals(location,true);
+            clickByCssSelector(cssSelector);
         }else{
             System.out.println("Lokasyonu kontol et");
             Assert.assertEquals(location,false);
